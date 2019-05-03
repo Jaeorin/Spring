@@ -3,6 +3,13 @@ server:
   servlet:
     context-path: /sample
 
+#5.7 이하의 버전
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/cos
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: cos
+#    password: bitc5600
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/cos?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true
@@ -13,13 +20,12 @@ spring:
   jpa:
     open-in-view: false
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
-    
-#6버전 미만 버전의 경우 아래와 같이 설정
-#spring:
-#  datasource:
-#    url: jdbc:mysql://localhost:3306/cos
-#    driver-class-name: com.mysql.jdbc.Driver
-#    username: cos
-#    password: bitc5600
+
+  mvc:
+    view: 
+      prefix: /WEB-INF/views/
+      suffix: .jsp
