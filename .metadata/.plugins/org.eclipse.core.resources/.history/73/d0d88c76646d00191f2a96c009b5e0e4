@@ -1,0 +1,25 @@
+package com.cos.sample.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class SampleController {
+
+	@GetMapping("/home")
+	public String home() {
+		
+		System.out.println("home");
+		
+		return "index.html";
+		
+	}
+	
+	@GetMapping("home/room")
+	public String homeRoom() {
+
+		return "room.html";
+		
+	}
+	
+}
