@@ -45,7 +45,7 @@ public class BoardController {
 	 * form-data
 	 */
 	@PostMapping("/create")
-	public String create(Board board) {
+	public String crete(Board board) {
 
 		board.setUpdateDate(MyUtils.getCurrentTime());
 		boardService.create(board);
