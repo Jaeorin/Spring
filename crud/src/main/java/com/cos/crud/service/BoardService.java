@@ -1,6 +1,7 @@
 package com.cos.crud.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,18 @@ public class BoardService {
 			e.printStackTrace();
 			return -1;
 		}
+		
+	}
+	
+	public Optional<Board> detail(int num) {
+		
+		return boardRepostory.findById(num);
+		
+	}
+	
+	public Board getOne(int num) {
+		
+		return boardRepostory.getOne(num);
 		
 	}
 
