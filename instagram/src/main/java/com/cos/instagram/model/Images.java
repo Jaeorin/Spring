@@ -1,33 +1,43 @@
 package com.cos.instagram.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 
 @Data
 @Entity
-public class Follow {
+public class Images {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne
-	@JoinColumn(name="from_user") // DB에 들어갈 포링 키(FK) 이름
-	private Users from_user;
+	@Lob
+	@Column(length=1024000)
+	private byte[] file;
+	private String location;
+	private String caption;
 	
 	@ManyToOne
-	@JoinColumn(name="to_user") // DB에 들어갈 포링 키(FK) 이름
-	private Users to_user;
+	@JoinColumn(name="user_id")
+	private Users user;
+	
+	@OneToMany
+	@JoinColumn(name="image_id")
+	private List<Tags> tags;
 	
 	private Timestamp create_date;
 	private Timestamp update_date;
-
+	
 }
