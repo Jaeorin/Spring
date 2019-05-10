@@ -25,9 +25,7 @@ public class Tags {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="user_id")
 	private Users user;
-	
-	
-	
+
 	private Timestamp create_date;
 	private Timestamp update_date;
 

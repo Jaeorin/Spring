@@ -25,7 +25,7 @@ public class Users {
 	private String phone;
 	private String gender;
 	@Lob
-	private byte[] prifile;
+	private byte[] profile;
 	
 //	@OneToMany(mappedBy = "from_user")
 //	private Follow from_user;
