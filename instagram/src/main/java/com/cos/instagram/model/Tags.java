@@ -12,7 +12,14 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
+
+/*
+ * @JsonIgnore를 사용하면 해당 객체를 참조하지 않는다 
+ */
 
 @Data
 @Entity
@@ -26,11 +33,22 @@ public class Tags {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="userId")
+	@JsonIgnoreProperties({"username", "name", "website", "bio", "email", "phone", "gender", "createDate", "updateDate"})
 	private Users user;
 
+	@ManyToOne
+	@JoinColumn(name = "imageId")
+	@JsonBackReference
+	private Images image;
+	
 	@CreationTimestamp
 	private LocalDate createDate;
 	@CreationTimestamp
 	private LocalDate updateDate;
 
+	// 이렇게 하면 시리어라이저블(직렬화)이 되지 않는다
+//	public Images getImage() {
+//		return null;
+//	}
+	
 }
