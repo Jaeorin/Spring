@@ -23,7 +23,9 @@ public class EroundController {
 	@RequestMapping("/test")
 	public Map<String, String> androidRequest(HttpServletRequest request){
 
-		int num = Integer.parseInt(request.getParameter("num"));
+//		int num = Integer.parseInt(request.getParameter("num"));
+		
+		int num = 1;
 		
 		Map<String, String> result = new HashMap<String, String>();
 

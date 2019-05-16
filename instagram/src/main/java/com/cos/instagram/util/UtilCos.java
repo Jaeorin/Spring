@@ -7,6 +7,9 @@ import java.util.List;
 import com.cos.instagram.model.Users;
 
 public class UtilCos {
+	
+//	@Autowired
+//	private static BCryptPasswordEncoder passwordEncoder;
 
 	public static String getResourcePath() {
 
@@ -15,10 +18,22 @@ public class UtilCos {
 	}
 
 	public static Users getUser() {
+		
+//		String password = passwordEncoder.encode("1234");
+//		System.out.println("password" + password);
 
-		Users user = Users.builder().bio("cos에 인스타에요").email("cos@naver.com").gender("남").name("최재원")
-				.phone("010-2222-5555").username("cos").website("http://blig.naver.com").createDate(LocalDate.now())
-				.updateDate(LocalDate.now()).build();
+		Users user = Users.builder()
+				.bio("cos에 인스타에요")
+				.email("cos@naver.com")
+				.gender("남")
+				.name("최재원")
+				.phone("010-2222-5555")
+				.username("cos")
+				.password("1234")
+				.website("http://blig.naver.com")
+				.createDate(LocalDate.now())
+				.updateDate(LocalDate.now())
+				.build();
 
 		return user;
 

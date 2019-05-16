@@ -31,12 +31,12 @@ public class Tags {
 	
 	private String name;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="userId")
 	@JsonIgnoreProperties({"username", "name", "website", "bio", "email", "phone", "gender", "createDate", "updateDate"})
 	private Users user;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "imageId")
 	@JsonBackReference
 	private Images image;
