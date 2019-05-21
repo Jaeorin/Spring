@@ -9,6 +9,7 @@ import com.cos.costagram.model.User;
 
 import lombok.Data;
 
+@SuppressWarnings("serial")
 @Data
 public class CustomUserDetails implements UserDetails {
 

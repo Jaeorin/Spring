@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,11 +19,11 @@
         }
         main{
             display: inline-block;
-            height: 1000px
+            height: 800px
         }
         .container{
             width: 700px;
-            margin: 100px;
+            margin: 10px;
             display: grid;
             grid-template-columns: auto auto;
             justify-content: center;
@@ -34,7 +35,7 @@
             margin-top: 30%
         }
         .image{
-            margin: 50px;
+            margin-top: 20px;
         }
         .bigbox{
             width: 100%;
@@ -78,14 +79,13 @@
             padding: 19px;
             margin: 2px;
         }
-        input[type=button]{
+        input[type=button], input[type=submit]{
             height: 31.3px;
             width: 268.02px;
             background-color: #3897F0;
             border-radius: 5px;
             border: 0px;
             color: white;
-
         }
         i{
             height: 31.3px;
@@ -121,44 +121,44 @@
           color: skyblue;
       }
       
-
     </style>
 </head>
 <body>
     <main>
     <div class="container">
-        <div class="instagram"><img src="/image/insta.png" alt="x" width="300" height="500" ></div>
+        <div class="instagram"><img src="/image/auth/insta.png" alt="x" width="300" height="500" ></div>
         <div class="bigbox">
-            <div><img src="/image/font.png" alt="x" class="image"></div>
+            <div><img src="/image/auth/font.png" alt="x" class="image"></div>
             <p class="text">친구들의 사진과 동영상을 보려면 가입하세요.</p>
             <div><a href="#"><i class="fab fa-facebook-square"> Facebook으로 로그인</i></a></div>
             <div class="text"><hr class="hr" />  또는  <hr class="hr" /></div>
-            
-            <table class="table">
-                <tr>
-                    <td><input type="text" name="" placeholder="휴대폰 번호 또는 이메일 주소" ></td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="" placeholder="성명" ></td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="" placeholder="사용자 이름" ></td>
-                </tr>
-                <tr>
-                    <td><input type="password" name="" placeholder="비밀번호" ></td> 
-                </tr>
-            </table>
-            <input type="button" value="가입">
+            <form action="/auth/create" method="post">
+	            <table class="table">
+	                <tr>
+	                    <td><input type="text" name="email" placeholder="이메일 주소" ></td>
+	                </tr>
+	                <tr>
+	                    <td><input type="text" name="name" placeholder="성명" ></td>
+	                </tr>
+	                <tr>
+	                    <td><input type="text" name="username" placeholder="사용자 이름" ></td>
+	                </tr>
+	                <tr>
+	                    <td><input type="password" name="password" placeholder="비밀번호" ></td> 
+	                </tr>
+	            </table>
+	            <input type="submit" value="가입">
+            </form>
             <p class="text">가입하면 Instagram의 약관, 데이터 정책 및 쿠키 정책에 동의하게 됩니다.</p>
         </div>
         <div class="smallbox">
-        <div class=text>계정이 있으신가요? <a href="#" class="under1">로그인</a></div>
+        <div class=text>계정이 있으신가요? <a href="/auth/login" class="under1">로그인</a></div>
         </div>
         <P class="text">앱을 다운로드 하세요</P>
         <div class="get">
-            <div class="get1"><a href="#"><img src="/image/apple.png" alt=""></a></div>
-            <div class="get1"><a href="#"><img src="/image/google.png" alt=""></a></div>
-            <div class="get1"><a href="#"><img src="/image/micro.png" alt=""></a></div>
+            <div class="get1"><a href="#"><img src="/image/auth/apple.png" alt=""></a></div>
+            <div class="get1"><a href="#"><img src="/image/auth/google.png" alt=""></a></div>
+            <div class="get1"><a href="#"><img src="/image/auth/micro.png" alt=""></a></div>
         </div>
         <div class="under">
                 <ui>

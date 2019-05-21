@@ -29,7 +29,7 @@ public class Tag {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="userId")
-	@JsonIgnoreProperties({"username", "name", "website", "bio", "email", "phone", "gender", "createDate", "updateDate"})
+	@JsonIgnoreProperties({"username", "password", "name", "website", "bio", "email", "phone", "gender", "createDate", "updateDate"})
 	private User user;
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -41,10 +41,5 @@ public class Tag {
 	private LocalDate createDate;
 	@CreationTimestamp
 	private LocalDate updateDate;
-
-	// 이렇게 하면 시리어라이저블(직렬화)이 되지 않는다
-//	public Images getImage() {
-//		return null;
-//	}
 	
 }
