@@ -39,7 +39,7 @@ public class Image {
 	private String caption;
 	private String mimeType;
 	private String fileName;
-	private String filepath;
+	private String filePath;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="userId")

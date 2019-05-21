@@ -277,7 +277,7 @@ input:focus {
 						<a href="#"><img src="/image/images/46.png" width="50px"></a>
 					</div>
 					<div class="small1-3">
-						<img src="${image.filePath}" width="500px" height="500px">
+						<img src="${image.filePath}" width="600px" height="600px">
 					</div>
 					<div class="small1-4">
 						<div class="small1-5">
