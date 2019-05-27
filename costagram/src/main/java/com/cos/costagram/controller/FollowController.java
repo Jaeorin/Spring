@@ -27,9 +27,10 @@ public class FollowController {
 	
 	@PostMapping("/{id}")
 	public String follow(@PathVariable Integer id, @AuthenticationPrincipal CustomUserDetails userDetail) {
+		System.out.println("누가 : "+userDetail.getUser().getId());
+		System.out.println("누구를 : "+id);
 		
 		Optional<User> optionalToUser = userRepository.findById(id);
-		
 		User fromUser = userDetail.getUser();
 		User toUser = optionalToUser.get();
 		
@@ -38,8 +39,7 @@ public class FollowController {
 		follow.setToUser(toUser);
 		
 		followRepository.save(follow);
-		
-		
+		//세션에서 현재 유저정보 가져오기
 		return "ok";
 	}
 	

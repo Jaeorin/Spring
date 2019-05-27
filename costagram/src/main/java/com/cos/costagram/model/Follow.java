@@ -1,7 +1,6 @@
 package com.cos.costagram.model;
 
 import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,11 +10,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
-
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class Follow {
 	
 	@Id
@@ -31,12 +31,10 @@ public class Follow {
 	private User toUser;
 	
 	@Transient
-	// true(혼자 팔로우), false(맞팔로우)
-	private Boolean doFollowing;
+	private Boolean doFollowing; //true(혼팔) false(맛팔)
 	
 	@CreationTimestamp
 	private LocalDate createDate;
 	@CreationTimestamp
 	private LocalDate updateDate;
-
 }

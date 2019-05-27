@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
+<link href="css/style.css" type="text/css" rel="stylesheet">
+<script src="js/jquery-1.12.3.js" type="text/javascript"></script>
 <style>
 * {
 	padding: 0;
@@ -70,26 +73,31 @@
 .image-list {
 	display: grid;
 }
-.small1-1 {
-	display: grid;
-	grid-template-columns: auto 1fr auto;
-	padding: 15px 0;
-	/* background-color: beige; */
-}
 .small1-2 {
-	display: grid;
-	grid-template-columns: auto auto;
 	border: 1px solid #999;
-	width: 602px;
-	height: 800px;
 	background-color: white;
+	margin-bottom: 20px;
 }
 .small1-3 {
 	grid-column: 1/3 span;
 }
+.image-header {
+	display:grid;
+	grid-template-columns: auto auto;
+	justify-content: space-between;
+}
 .b1 {
 	margin-left: 15px;
 	margin-top: 10px;
+	display:grid;
+	grid-template-columns: auto auto;
+}
+.info {
+	padding-left: 10px;
+}
+.location {
+	padding-top:2px;
+	font-size:9px;
 }
 .b2 {
 	margin-top: 20px;
@@ -151,7 +159,7 @@
 	position: absolute;
 	margin-left: 560px;
 	margin-top: 10px;
-	color: skyblue;
+	color: #003569;
 	text-decoration: none;
 }
 input:focus {
@@ -222,6 +230,24 @@ input:focus {
 	color: #999;
 	text-decoration: none;
 }
+.tag {
+	color:#003569;
+}
+.like_people {
+	text-decoration:none;
+	color:#003569;
+}
+input[type=button]{
+    height: 31.3px;
+    width: 600px;
+    background-color: #3897F0;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+}
+.like_people {
+	display:inline-block;
+}
 </style>
 </head>
 
@@ -230,12 +256,12 @@ input:focus {
 		<div class="small">
 			<div class="small1">
 				<div class="a0">
-					<a href="#"><img src="/image/images/40.png" width="30px"
+					<a href="/images"><img src="/image/images/40.png" width="30px"
 						height="35px"></a>
 				</div>
 				<div class="line"></div>
 				<div class="a1">
-					<a href="#"><img src="/image/images/logo.png" width="100px"
+					<a href="/images"><img src="/image/images/logo.png" width="100px"
 						height="30px"></a>
 				</div>
 			</div>
@@ -247,12 +273,14 @@ input:focus {
 			</div>
 
 			<div class="small3">
-				<a href="#"><img src="/image/images/41.png" height="30px"></a>
+				<a href="/exploer"><img src="/image/images/41.png" height="30px"></a>
+	
 				<div class="a5">
 					<a href="#"><img src="/image/images/42.png" height="30px"></a>
 				</div>
+		
 				<div class="a5">
-					<a href="#"><img src="/image/images/43.png" height="30px"></a>
+					<a href="/user/${user.id}"><img src="/image/images/43.png" height="30px"></a>
 				</div>
 			</div>
 		</div>
@@ -263,27 +291,52 @@ input:focus {
 	<div class="big1">
 		<div class="image-list">
 
-			<c:forEach var="image" items="${imageList}">
+			<c:forEach var="image" items="${imageList}" varStatus="loop">
 			<!--  start item1  -->
-			<div class="small1-1">
 				<div class="small1-2">
-					<div class="b1">
-						<a href="#"><img src="/image/images/44.jpg"></a>
-					</div>
-					<div class="b2">
-						<a class="b4" href="#">${image.user.username}</a>
-					</div>
-					<div class="b3">
-						<a href="#"><img src="/image/images/46.png" width="50px"></a>
+					<div class="image-header">
+						<div class="b1">
+							<div class="profile">
+								<a href="#"><img src="/image/images/44.jpg"></a>
+							</div>
+							<div class="info">
+								<div class="username"><b>${image.user.username}</b></div>
+								<div class="location">${image.location}</div>
+							</div>
+						</div>
+						<div class="b3">
+							<a href="#"><img src="/image/images/46.png" width="50px"></a>
+						</div>
 					</div>
 					<div class="small1-3">
-						<img src="${image.filePath}" width="600px" height="600px">
+						<img src="${image.filePath}" width="600px" height="500px">
 					</div>
 					<div class="small1-4">
 						<div class="small1-5">
-							<div class="c__1">
-								<a href="#"><img src="/image/images/49.png" height="30px"></a>
-							</div>
+
+							<c:set var="likeId" value="null" />
+							<c:set var="like_check" value="false" />
+
+							<c:forEach var="like" items="${image.likes}">
+								<c:if test="${like.user.id eq user.id}">	
+									<c:set var="likeId" value="${like.id}" />
+									<c:set var="like_check" value="true" />
+								</c:if>
+							</c:forEach>
+							<c:choose>
+								<c:when test="${like_check eq true}">
+
+									<div class="c__1 c__1${image.id}">
+										<img src="/image/images/49_like.png" onclick="like(${image.id},${fn:length(image.likes)}, -1)" height="30px" />
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div class="c__1 c__1${image.id}">
+										<img src="/image/images/49_unlike.png" onclick="like(${image.id},${fn:length(image.likes)}, 1)" height="30px" />
+									</div>		
+								</c:otherwise>
+							</c:choose>
+
 							<div class="c__2">
 								<a href="#"><img src="/image/images/48.png" height="30px"></a>
 							</div>
@@ -298,16 +351,29 @@ input:focus {
 							<a href="#"><img src="/image/images/51.png" height="30px"></a>
 						</div>
 					</div>
-					<div class="d">조회 1,911,147회</div>
-					<div class="e">댓글들...</div>
+
+					<div class="d like${image.id}"><b>좋아요${fn:length(image.likes)}개</b></div>
+
+					<div class="e">
+						<b>${image.user.username}</b> ${image.caption}<br />
+						<c:forEach var="tag" items="${image.tags}">
+							<span class="tag">#${tag.name}</span>
+						</c:forEach><br />
+
+						<b>좋아요 한 사람들</b>
+						<div class="like_people like_people${image.id}">
+						<c:forEach var="like" items="${image.likes}">
+							<a href="#" class="like_people${like.user.username}${image.id}">${like.user.username}</a> 
+						</c:forEach>
+						</div>
+
+					</div>
 					<div class="f">
 						<input class="g" type="text" placeholder="댓글 달기" /><a class="h"
 							href="#">게시</a>
 					</div>
 
-				</div>
-
-			</div>
+				</div> 
 			<!--  end of item1 -->
 			</c:forEach>
 			
@@ -315,16 +381,15 @@ input:focus {
 		</div>
 		<!-- end of image-list -->
 
-
 		<!--  START side BAR -->
 		<div>
 			<div class="small2-1">
 
 				<div>
-					<a href="#"><img src="/image/images/61.png" alt="x" /></a>
+					<a href="#" class="popup"><img src="/image/images/61.png" alt="x" width="50px" height="50px"/></a>
 				</div>
 				<div class="ax">
-					<a class="bx2" href="#">sung-ju</a>
+					<a class="bx2" href="#">${user.username}</a>
 				</div>
 
 
@@ -427,10 +492,107 @@ input:focus {
 
 		</div>
 		<!--  END OF side BAR -->
-
-
+		<div>
+			<input type="button" value="더보기" onClick="paging()"/>
+			<br/><br/>
+		</div>
 
 	</div>
+
+	
+<!-- Modal 시작 -->
+<div id="modal">
+  <div id="pop">
+    <div class="img"> <img src="image/img.jpg" alt="최주호사진">
+      <p>최주호</p>
+      <button>팔로우</button>
+      <span>X</span> </div>
+    <div class="img"> <img src="image/img.jpg" alt="최주호사진">
+      <p>최주호</p>
+      <button>팔로우</button>
+      <span>X</span> </div>
+    <div class="img"> <img src="image/img.jpg" alt="최주호사진">
+      <p>최주호</p>
+      <button>팔로우</button>
+      <span>X</span> </div>
+    <div class="img"> <img src="image/img.jpg" alt="최주호사진">
+      <p>최주호</p>
+      <button>팔로우</button>
+      <span>X</span> </div>
+    <div class="img"> <img src="image/img.jpg" alt="최주호사진">
+      <p>최주호</p>
+      <button>팔로우</button>
+      <span>X</span> </div>
+    <div class="img"> <img src="image/img.jpg" alt="최주호사진">
+      <p>최주호</p>
+      <button>팔로우</button>
+      <span>X</span> </div>
+    <div class="close">
+      <button type="button" id="btn-close">닫기</button>
+    </div>
+  </div>
+</div>
+<!-- Modal 끝 --> 
+<!-- wrap 끝 --> 
+<script src="js/script.js" type="text/javascript"></script>
+
+	<script>
+		function paging(){
+			if(${maxPage} == ${page}){
+				alert("마지막 페이지입니다");
+			}else{
+				location.href="/images?page="+${page+1};	
+			}	
+		}
+		
+		function like(imageId, count, check){
+			if(check == -1){
+				fetch("/unlike/image/"+imageId,{
+					method:"POST"
+				}).then(function(res){
+					return res.text();
+				}).then(function(result){
+					//하트 없애기
+					let el = document.querySelector('.c__1'+imageId);
+					el.innerHTML = "<img src='/image/images/49_unlike.png' onclick='like("+imageId+","+(count-1)+", 1)' height='30px' />";
+					
+					//좋아요 개수
+					let el2 = document.querySelector('.like'+imageId);
+					el2.innerHTML = "<b>좋아요"+(count-1)+"개</b>";
+					
+					//좋아요 한 사람들
+					let username = "${user.username}";
+					let myDom = document.querySelector('.like_people'+username+imageId);
+					myDom.parentNode.removeChild(myDom);
+				
+				});
+			}else{
+				fetch("/like/image/"+imageId,{
+					method:"POST"	
+				}).then(function(res){
+					return res.text();
+				}).then(function(result){
+					//하트
+					let el = document.querySelector('.c__1'+imageId);
+					el.innerHTML = "<img src='/image/images/49_like.png' onclick='like("+imageId+","+(count+1)+", -1)' height='30px' />";
+					
+					//좋아요 개수
+					let el2 = document.querySelector('.like'+imageId);
+					el2.innerHTML = "<b>좋아요"+(count+1)+"개</b>";
+					
+					//좋아요 한 사람들
+					let username = "${user.username}";
+					let el3 = document.querySelector(".like_people"+imageId);
+					let myDom = document.createElement("a");
+					myDom.className ="like_people like_people"+username+imageId;
+					myDom.innerHTML = "${user.username}";
+					el3.append(myDom);
+				
+				});
+			}
+		}
+	</script>
+	
 </body>
 
 </html>

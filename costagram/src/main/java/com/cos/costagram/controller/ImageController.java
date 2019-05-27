@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,43 +36,68 @@ public class ImageController {
 	
 	@Autowired
 	private TagRepository tagRepository;
-
+	
 	@Autowired
 	private FollowRepository followRepository;
-
+	
 	@GetMapping("/home")
 	public String home() {
 		return "home";
 	}
-
+	
 	@GetMapping("/images")
-	public String image(@AuthenticationPrincipal CustomUserDetails userDetail, Model model) {
-
+	public String image(@AuthenticationPrincipal CustomUserDetails userDetail, Model model, @RequestParam(value="page", defaultValue = "1") int page) {
+		
 		//1. User (One)
 		User user = userDetail.getUser();
-
-		//2. Follow:User (Many)
+		System.out.println("user.getId() : " +user.getId());
+		
+		//2. User:Follow (List)
 		List<Follow> followList = followRepository.findByFromUserId(user.getId());
 
-		//3. Follow:Image (Many) 4. Follow:Image:Like(count) (One)
+		//3. User:Follow:Image (List) 4. Follow:Image:Like(count) (One)
 		List<Image> imageList = new ArrayList<>();
 
 		for(Follow f : followList) {
-			List<Image> list = imageRepository.findByUserId(f.getToUser().getId());
+			List<Image> list = imageRepository.findByUserIdOrderByCreateDateDesc(f.getToUser().getId());
 			for(Image i : list) {
 				imageList.add(i);
+			}	
+		}
+		System.out.println("imageList Size : "+imageList.size());
+		//4. 페이징 처리
+		int maxPage = 0;
+		int start = (page-1)*3;
+		int end = page*3;
+		int mod = imageList.size()%3; //0
+		if(mod == 0) {
+			maxPage = imageList.size()/3; //2
+		}else {
+			maxPage= imageList.size()/3 + 1;
+			if(page == maxPage) {
+				end = start + mod;
 			}
-
 		}
 		
-		// 4. Model에 담아주기
+		for(Image i : imageList) {
+			System.out.println(i.getId());
+		}
+		System.out.println("=================");
+		Collections.sort(imageList);
+		for(Image i : imageList) {
+			System.out.println(i.getId());
+		}
+		imageList = imageList.subList(start, end); //0 3
+		
+		//5. Model에 담아주기
 		model.addAttribute("user", user);
 		model.addAttribute("imageList", imageList);
+		model.addAttribute("page", page);
+		model.addAttribute("maxPage", maxPage);
 
 		return "/images/image";
-		
 	}
-
+	
 	@PostMapping("/image/upload")
 	public @ResponseBody Image imageUpload(
 			@AuthenticationPrincipal CustomUserDetails userDetail,
@@ -83,6 +109,7 @@ public class ImageController {
 		
 		Files.write(filePath, file.getBytes());
 		User user = userDetail.getUser();
+
 		List<String> tagList = UtilCos.tagParser(tags);
 		
 		Image image = Image.builder()
@@ -91,7 +118,7 @@ public class ImageController {
 				.user(user)
 				.mimeType(file.getContentType())
 				.fileName(file.getOriginalFilename())
-				.filepath("/image/"+file.getOriginalFilename())
+				.filePath("/image/"+file.getOriginalFilename())
 				.build();
 		
 		imageRepository.save(image);
@@ -107,5 +134,4 @@ public class ImageController {
 		
 		return image;
 	}
-	
 }

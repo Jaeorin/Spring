@@ -19,25 +19,22 @@ import lombok.Data;
 @Data
 @Entity
 public class Likes {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@ManyToOne
 	@JoinColumn(name="userId")
-	@JsonIgnoreProperties({"username", "password", "name", "website", "bio", "email", "phone", "gender", "createDate", "updateDate"})
+	@JsonIgnoreProperties({"password"})
 	private User user;
-
+	
 	@ManyToOne
 	@JoinColumn(name="imageId")
 	@JsonBackReference
 	private Image image;
-
+	
 	@CreationTimestamp
 	private LocalDate createDate;
 	@CreationTimestamp
 	private LocalDate updateDate;
-	
-	
 }
