@@ -1,0 +1,84 @@
+.container{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: grid;
+  }
+.suggestTags {
+    margin: 2px 15px 10px 15px;
+}
+.suggestTags a {
+    font-size: 13px;
+    color: #888;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 0px 3px;
+}
+.menu1 {
+    float: left;
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    background-color: #fff;
+    border-top: 1px solid #DADADB;
+    border-bottom: 1px solid #DADADB;
+    font-family: '나눔고딕', NanumGothic, '돋움', Dotum, '굴림', Gulim, Helvetica, sans-serif !important;
+    margin-bottom: 8px;
+}
+.menu1 .container {
+    max-width: 970px;
+    width: 95%;
+    margin: auto;
+}
+.menu1 ul {
+    display: table;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    white-space: nowrap;
+}
+.menu1 ul li {
+    display:inline-block;
+    line-height: 40px;
+    padding: 0px 4px;
+}
+.menu1 ul li a {
+    display:inline-block;
+    height:38px;
+    text-decoration: none;
+    color: #555;
+    font-size: 15px;
+    padding: 0px 5px;
+    font-weight: 700;
+}
+.menu1 ul li.selected a {
+    color: #e8282a;
+    border-bottom: 2px solid #e8282a;
+}
+.list-group-item-topic  {
+    width: 65.7%;
+    max-width: 598px;
+    height: 498px;
+    padding: 0px;
+    margin: 0px;
+    font-size: 19px;
+    float: left;
+    list-style: none;
+    margin: 3px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 1px;
+    position: relative;
+}
+.list-group-item {
+    font-size: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    position: relative;
+    border-radius: 3px;
+    height: 250px;
+    overflow: hidden;
+}
+

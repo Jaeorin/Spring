@@ -1,0 +1,29 @@
+server:
+  port: 8000
+  servlet: 
+    context-path: /
+    
+spring:
+  datasource:
+#   6.0미만 버전은 url:jdbc:mysql://localhost:3306/white ,driver-class-name: com.mysql.jdbc.Driver 
+    url: jdbc:mysql://localhost:3306/around?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: around
+    password: bitc5600
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+      naming:
+#     PhysicalNamingStrategyStandardImpl 변수명을 대소문자 그대로 만들어줌
+#     SpringPhysicalNamingStrategy 변수명을 create_date 형식으로 만들어줌     
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties: 
+      hibernate.enable_lazy_load_no_trans: true    
+    show-sql: true
+    
+    
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
