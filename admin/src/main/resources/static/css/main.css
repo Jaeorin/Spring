@@ -1,0 +1,26 @@
+
+ .container > .row{
+    background-color: white;
+}
+#nav >li >div{
+    padding-right: 0;
+}
+
+.content {
+	height: 100%;
+	background-color: white;
+		position: relative;
+	padding: 0;
+}
+.row{
+	
+}
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 0;
+  font-size: 20px;
+  height: 100%;
+}
+

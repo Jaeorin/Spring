@@ -1,0 +1,37 @@
+.border-primary .list-group-item:nth-child(even) {
+	color: #004085;
+	background-color: #b8daff;
+}
+
+.border-danger .list-group-item:nth-child(even) {
+	color: #721c24;
+	background-color: #f5c6cb;
+}
+
+.border-primary .pagination>.page-item .page-link
+{
+  border: 1px solid #004085;
+  color: #004085; 
+}
+
+
+.border-danger .pagination>.page-item .page-link
+{
+  border: 1px solid #721c24;
+  color: #721c24;
+}
+
+
+.border-danger .page-item.active .page-link{
+	background-color: #F5C6CB;
+	color: #721c24;
+	border: 1px solid #721c24;
+}
+.notice-write{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	justify-content: center;
+}
+.notice-title , .notice-content{
+	border: 1px solid #721c24;
+}

@@ -1,0 +1,220 @@
+body {
+    position: relative;
+    background-color: #F5F6F7;
+}
+.container-top{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+    float: left;
+    width: 100%;
+    min-width: 300px;
+    margin: 0;
+    background-color: #f5f6f7;
+}
+.headerWrap {
+    background-color: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
+    float: left;
+    width: 100%;
+    height: 64px;
+    line-height: 160%;
+}
+.headerWrap header {
+    width: 930px;
+    margin: auto;
+    height: 64px;
+}
+.headerWrap header .top-logo {
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+.headerWrap header .top-logo a {
+    display: inline-block;
+    margin-top: 12px;
+    height: 45px;
+}
+.headerWrap header .top-logo img {
+    width: 113px;
+    margin: 3px 0 0 0;
+    padding: 0;
+}
+.headerWrap header .top-search {
+    float: left;
+    width: 320px;
+    margin: 8px 0 0 190px;
+    font-weight: 500;
+    padding: 0;
+}
+.headerWrap header .top-search .search-box {
+    float: left;
+    color: #062B4E;
+    font-size: 14px;
+    width: 220px;
+    height: 34px;
+    margin: 5px 5px 10px 10px;
+    padding: 3px 5px 3px 12px;
+    border-radius: 2px;
+    border: 1px solid #A1AAB5;
+}
+.headerWrap header .top-search-btn {
+    float: left;
+    color: #fff;
+    background-color: #9EA7B2;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 400;
+    height: 30px;
+    margin-top: 9px;
+    padding: 1px 12px 2px 12px;
+    border-radius: 4px;
+    border: 1px solid #9EA7B2;
+}
+.headerWrap header .top-download {
+    float: right;
+    color: #9AA4AF;
+    font-size: 12px;
+    padding: 0;
+    margin: 9px 0 0 0;
+    line-height: 150%;
+    font-weight: normal;
+}
+.headerWrap header .top-download .top-download-btn {
+    color: #fff;
+    float: right;
+    background-color: #19293B;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    padding: 6px 12px 6px 12px;
+    margin: 8px 0 0 12px;
+    font-weight: bold;
+}
+.menuWrap {
+    float: left;
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    background-color: #fff;
+    border-top: 1px solid #DADADB;
+    border-bottom: 1px solid #DADADB;
+    font-family: '나눔고딕', NanumGothic, '돋움', Dotum, '굴림', Gulim, Helvetica, sans-serif !important;
+    margin-bottom: 8px;
+}
+.menuWrap .swiper-container {
+    max-width: 960px;
+    width: 95%;
+    margin: auto;
+}
+.menuWrap ul {
+    display: table;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    white-space: nowrap;
+}
+.menuWrap ul li {
+    display: inline-block;
+    line-height: 40px;
+    padding: 0px 4px;
+}
+.menuWrap ul li a {
+    display: inline-block;
+    height: 38px;
+    text-decoration: none;
+    color: #555;
+    font-size: 15px;
+    padding: 0px 5px;
+    font-weight: 700;
+}
+.contentsWrap .mainContentsWrap {
+    max-width: 930px;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    background-color: #fff;
+}
+.contentsWrap .mainContentsWrap h5 {
+    margin-left: 13px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    float: left;
+    width: 100%;
+}
+.infinity-list {
+    margin: 0px;
+    padding: 0px;
+}
+.infinity-list ul {
+    padding: 5px 10px;
+    margin: 0px;
+}
+.infinity-list ul li.typec {
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    position: relative;
+    border-radius: 3px;
+    height: 250px;
+}
+.infinity-list ul li.col2 {
+    width: 32.9%;
+    height: 280px;
+    padding: 0px;
+    margin: 1px;
+    float: left;
+    list-style: none;
+}
+.infinity-list ul li.typec img {
+    width: 100%;
+    height: 100%;
+}
+.infinity-list ul li.typec a {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.infinity-list ul li.typec a p {
+    position: absolute;
+    top: 20px;
+    font-weight: 400;
+    color: white;
+    text-shadow: 0px 0px 2px #000;
+    line-height: 165%;
+    width: 85%;
+    padding: 0 0 0 15px;
+    margin: 0px;
+    text-align: left;
+    height: 13em;
+    overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: normal;
+}
+.contentsWrap .mainContentsWrap h5 {
+    margin-left: 13px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    float: left;
+    width: 100%;
+}
+#demo{
+    background-color: #fff;
+    float: left;
+    width: 100%;
+    height: 45px;
+}

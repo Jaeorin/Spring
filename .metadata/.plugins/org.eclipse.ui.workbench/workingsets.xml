@@ -9,5 +9,9 @@
 <item elementID="=sample/src\/test\/java" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=sample/target\/generated-test-sources\/test-annotations" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1560235274046_3" label="sdasd" name="sdasd"/>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1560235297005_4" label="around" name="around"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1556850589980_2" label="Window Working Set" name="Aggregate for window 1556850589980"/>
+<mruList name="around"/>
+<mruList name="sdasd"/>
 </workingSetManager>

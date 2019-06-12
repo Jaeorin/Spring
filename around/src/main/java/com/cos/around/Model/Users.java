@@ -11,8 +11,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -53,6 +51,9 @@ public class Users {
 	
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Reply> reply;
+	
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private List<Report> report;
 	
 	@Column(nullable = false, length = 50)
 	private String userEmail;

@@ -2,9 +2,28 @@
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
+    padding-bottom: 60px;
     margin-right: auto;
     margin-left: auto;
     display: grid;
+    
+  }
+ 
+.container1{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+    float: left;
+    width: 100%;
+    min-width: 300px;
+    background-color: #f4f4f6;
+
+}
+.container2{
+    width: 100%;
+    padding: 0;
+    margin : 0 auto;
+    display: grid;
+    background-color: #fff;
   }
 .suggestTags {
     margin: 2px 15px 10px 15px;
@@ -25,7 +44,7 @@
     border-top: 1px solid #DADADB;
     border-bottom: 1px solid #DADADB;
     font-family: '나눔고딕', NanumGothic, '돋움', Dotum, '굴림', Gulim, Helvetica, sans-serif !important;
-    margin-bottom: 8px;
+    
 }
 .menu1 .container {
     max-width: 970px;
@@ -81,4 +100,375 @@
     height: 250px;
     overflow: hidden;
 }
-
+.contentsWarp{
+    float: left;
+    width: 100%;
+    position: relative;
+    padding-bottom: 60px;
+}
+.article-body{
+    float: left;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    background-color: white;
+    border: 1px solid #eaeaea;
+    border-top: 0px;
+}
+.listen-banner{
+    background: #673AB7;
+    text-align: center;
+    padding-top: 6px;
+}
+.listen-banner img{
+    width: 360px;
+    border: 0;
+}
+.main .article-body-content img{
+    max-width: 99%;
+}
+.main .article-body-content p{
+    text-align: left;
+    font-size: 17px;
+    font-weight: 300;
+    margin-top: 20px;
+    line-height: 1.8em;
+}
+.cast-container{
+    float: left;
+    width: 600px;
+    margin-top: 0;
+    background: #fff;
+    border-left: 1px solid #eaeaea;
+    border-right: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    padding: 0;
+}
+.picture-list{
+    margin: 0;
+}
+.picture-list .title{
+    color: #888;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+    padding: 16px 30px 2px 14px;
+}
+.picture-list ul{
+    float: left;
+    margin: 12px 2px 24px 8px;
+    padding: 0 0 0 10px;
+    list-style: none;
+}
+.picture-list ul li{
+    float: left;
+    width: 130px;
+    margin: 0 0 0 8px;
+}
+.picture-list ul li img{
+    width: 100%;
+    border-radius: 4px;
+}
+.picture-list ul li a{
+    color: #888;
+    text-decoration: none;
+}
+.series-list{
+    color: #808080;
+    margin: 0;
+}
+.series-list .title{
+    color: #888;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+    padding: 16px 30px 12px 30px;
+}
+.series-list ul{
+    margin: 0px 28px 0 10px;
+    padding: 0 0 24px 20px;
+    list-style: none;
+}
+.series-list ul li{
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    line-height: 2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.series-list ul li a {
+    display: block;
+    color: #1A2E43;
+    height: 34px;
+    padding: 6px 12px 0 36px;
+}
+.series-list ul li.prev a{
+    text-decoration: none;
+    background: url(/image/bullet_02.png) no-repeat 10px 11px;
+    background-size: 20px;
+    border: 1px solid #E2E8EF;
+}
+.series-list ul li.next a{
+    text-decoration: none;
+    background: url(/image/bullet_03.png) no-repeat 10px 11px;
+    background-size: 20px;
+    border-right: 1px solid #E2E8EF;
+    border-left: 1px solid #E2E8EF;
+    border-bottom: 1px solid #E2E8EF;
+}
+.main .article-share{
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #eaeaea;
+    height: 55px;
+}
+.main .article-share .article-share-btn{
+    float: left;
+    width: 25%;
+    height: 100%;
+    border: none;
+    background: url(/image/share_btns.jpg) no-repeat left top;
+}
+.hidden_elem{
+    display: none;
+}
+.main .article-share .article-share-btn.share-facebook{
+    background-position: 0 0;
+    background-size: 600px;
+}
+.main .article-share .article-share-btn.share-kakaotalk{
+    background-position: -150px 0;
+    background-size: 600px;
+}
+.main .article-share .article-share-btn.share-band{
+    background-position: -300px 0;
+    background-size: 600px;
+}
+.main .article-share .article-share-btn.share-url{
+    background-position: -450px 0;
+    background-size: 600px;
+}
+.main .article-comments{
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+    min-height: 270px;
+    border: 1px solid #eaeaea;
+    background-color: #fff;
+    font-weight: 300;
+}
+.article-comments-info{
+    width: 100%;
+    height: 20px;
+    line-height: 120%;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+.comments-count{
+    float: left;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.comments-count .value{
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.comments{
+    margin: 5px 30px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    min-height: 100px;
+}
+.comments ul{
+    padding: 0px;
+    list-style: none;
+}
+.comments ul li{
+    position: relative;
+    margin-bottom: 10px;
+}
+.comments ul li .idicon{
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 23px;
+    background-color: #aaa;
+    left: 5px;
+    top: 15px;
+    text-align: center;
+    line-height: 40px;
+}
+.comments ul li .comment{
+    color: #4f4f4f;
+    font-size: 15px;
+    font-weight: 300;
+    text-align: justify;
+    line-height: 150%;
+    margin-left: 56px;
+    margin-bottom: 0px;
+    padding: 10px 10px 0 0;
+}
+.comments ul li .comment-info{
+    color: #A6A6A6;
+    font-size: 12px;
+    margin-left: 56px;
+}
+.comments ul li.sub{
+    background: url(/image/bg_reply_01.png) no-repeat #fff;
+    background-position: 8px 0;
+    margin-left: 0;
+}
+.comments ul li.sub .idicon{
+    width: 30px;
+    height: 30px;
+    top: 3px;
+    line-height: 33px;
+    margin-left: 44px;
+}
+.comments ul li.sub .comment{
+    font-size: 13px;
+    margin-left: 92px;
+    line-height: 160%;
+    padding: 0 10px 0 0;
+}
+.comments ul li.sub .comment-info{
+    font-size: 12px;
+    margin-left: 92px;
+}
+.article-comments-morebtn{
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    margin: 20px 0px;
+}
+.article-comments-morebtn .morebtn{
+    color: #A4AEB8;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0.7em 3.4em 0.7em 2em;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #A4AEB8;
+    background: url(/image/next_arrow_02.png) no-repeat #fff;
+    background-size: 20px 20px;
+    background-position: 262px 8px;
+    border-radius: 30px;
+}
+.article-comments-morebtn .morebtn:hover{
+    color: #fff;
+    border: 1px solid #A4AEB8;
+    background: url(/image/app_logo_03.png) no-repeat #A4AEB8;
+    background-size: 20px 20px;
+    background-position: 262px 8px;
+    border-radius: 30px;
+}
+.download-section{
+    float: left;
+    width: 600px;
+    margin-top: 20px;
+    min-height: 240px;
+    text-align: center;
+    color: #8f9aa4;
+}
+.top-description{
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 300;
+}
+.bottom-description{
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 18px;
+    padding-bottom: 10px;
+}
+.buttons{
+    padding: 0px 0px;
+}
+.buttons .store-download{
+    color: #fff;
+    background: #A4AEB8;
+    padding: 6px 24px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 30px;
+}
+.copyright{
+    font-size: 14px;
+    line-height: 120%;
+    padding-top: 20px;
+}
+.footerWrap{
+    float: left;
+    width: 100%;
+    height: 70px;
+    margin-top: 10px;
+    background-color: white;
+}
+footer{
+    width: 930px;
+    margin: auto;
+    height: 70px;
+    line-height: 70px;
+   
+}
+.footer-download{
+    float: left;
+    width: 320px;
+    background: url(/image/footer_logo.jpg) no-repeat left center;
+    background-size: 220px 52px;
+    text-align: right;
+    margin-left: 40px;
+    line-height: 70px;
+    
+}
+.footer-download-btn{
+    color: #19293B;
+    font-size: 12px;
+    padding: 6px 12px;
+    border: 1px solid #19293B;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    margin-left: 12px;
+    font-weight: normal;
+}
+.footer-share{
+    float: right;
+    width: 200px;
+    height: 60px;
+    margin: 0;
+    padding-top: 6px;
+    padding-right: 3px;
+    text-align: right;
+}
+.footer-share-btn{
+    float: left;
+    width: 25%;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    background: url(/image/share_footer_btns_s.png) no-repeat;
+}
+footer .footer-share .footer-share-btn.share-facebook{
+    background-position: center 0;
+    background-size: 80px;
+}
+footer .footer-share .footer-share-btn.share-kakaotalk{
+    background-position: center -120px;
+    background-size: 80px;
+}
+footer .footer-share .footer-share-btn.share-band{
+    background-position: center -240px;
+    background-size: 80px;
+}
+footer .footer-share .footer-share-btn.share-url{
+    background-position: center -360px;
+    background-size: 80px;
+}
